@@ -16,6 +16,10 @@ export default defineConfig({
       appendPlugins([
         new ModuleFederationPlugin({
           name: 'remote1',
+          remotes: {
+            bbc: "http://localhost:5173/dd/remoteEntry.js",
+          },
+          remoteType: "module",
           exposes: {
             './button': './src/button.tsx',
             './app': './src/app.tsx',
